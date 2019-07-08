@@ -69,10 +69,10 @@ The Glorious Glasgow Haskell Compilation System, version 8.6.5
 cabal-install version 2.4.1.0
 compiled using version 2.4.1.0 of the Cabal library
 
-# ghci
-Prelude> import System.Random.MWC
-Prelude System.Random.MWC> create >>= uniformR (1,6) :: IO Int
-4
+# echo -e "import System.Random.MWC\nmain = createSystemRandom >>= uniform >>= (print :: Int -> IO ())" > A.hs
+# ghc -o a.out -O2 A.hs
+# ./a.out
+-2530740540117274139
 ```
 
 ### 注意点 1
