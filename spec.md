@@ -1,10 +1,8 @@
 # 環境構築方法について
 
-`ghcup` を使った環境構築方法を採用したいと思います。インストール手順については [公式サイト](https://www.haskell.org/ghcup/) に記載されている通り、以下のコマンドで行います。
+[ghcup](https://www.haskell.org/ghcup/) を使った環境構築方法を採用したいと思います。ghcup は [rustup](https://rustup.rs/) と同じような環境構築ツールです。
 
-```shell
-$ curl https://get-ghcup.haskell.org -sSf | s
-```
+`ghcup` は比較的最近出てきたツールなので、使ったことが無い方も多いとは思いますが、コンパイラ (ghc) とビルドツール (cabal-install) のセットアップを自動的に行います。
 
 この作業によって、以下のバージョンの `ghc`, `cabal` がインストールされます。(2019/7/8 確認)
 
