@@ -10,7 +10,7 @@
 
 - https://twitter.com/chokudai/status/1100429644681998336
 
-後になって、とあるライブラリが無い/GHCのバージョンが古すぎる/もっと良いコンパイルオプションがある等の理由によって [AtCoder](https://atcoder.jp/?lang=ja) で Haskell を選びづらいという状況ができるだけ発生しないように、これから AtCoder を通して Haskell の理解を深めようと思う人の大半が満足できる環境を提案できたらと思います。(また、現状の不満も同様に解決できたらと思っています)
+後になって、とあるパッケージが無い/GHCのバージョンが古すぎる/もっと良いコンパイルオプションがある等の理由によって [AtCoder](https://atcoder.jp/?lang=ja) で Haskell を選びづらいという状況ができるだけ発生しないように、これから AtCoder を通して Haskell の理解を深めようと思う人の大半が満足できる環境を提案できたらと思います。(また、現状の不満も同様に解決できたらと思っています)
 
 # 要望の提出方法について
 
@@ -25,9 +25,9 @@
 
 - AtCoder の Haskell 環境を整備する
 - 以下の内容について Haskell-jp コミュニティの意見をまとめる
-  - コンパイラ&ライブラリのインストール方法について
+  - コンパイラ&追加パッケージのインストール方法について
   - GHC のバージョン
-  - ライブラリ
+  - 追加パッケージの選定
   - コンパイルオプション
   
 まとめた内容の提出方法はスプレッドシートへの書き込みという感じになるようです。
@@ -148,14 +148,14 @@ zlib-0.5.4.2
 
 # ghc について
 
-素の GHC が依存するライブラリについては [Haskell Hierarchical Libraries](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/) や [GHC Commentary: Libraries](https://ghc.haskell.org/trac/ghc/wiki/Commentary/Libraries) に色々と説明がある。
+素の GHC が依存するパッケージについては [Haskell Hierarchical Libraries](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/) や [GHC Commentary: Libraries](https://ghc.haskell.org/trac/ghc/wiki/Commentary/Libraries) に色々と説明がある。
 
 # 環境の構築方法について
 
 ## Haskell Platform
 
 - [Haskell Platform 公式サイト](https://www.haskell.org/platform/)
-- [Full Platformで入るライブラリの早見表](https://www.haskell.org/platform/contents.html)
+- [Full Platformで入るパッケージの早見表](https://www.haskell.org/platform/contents.html)
 
 MEMO
 
@@ -194,9 +194,9 @@ MEMO
 - [ghcup 公式リソース](https://github.com/haskell/ghcup)
 - [cabal 公式ドキュメント](https://www.haskell.org/cabal/users-guide/)
 
-# ライブラリについて
+# 追加パッケージについて
 
-まだブレインストーミング段階です。以下は slack に出てきたライブラリをリスト化したものです。(アルファベット順)
+まだブレインストーミング段階です。以下は slack に出てきたパッケージをリスト化したものです。(アルファベット順)
 
 - [array](https://hackage.haskell.org/package/array)
 - [attoparsec](https://hackage.haskell.org/package/attoparsec)
@@ -221,7 +221,7 @@ MEMO
 - [vector-algorithms](https://hackage.haskell.org/package/vector-algorithms)
   - [Data.List.sort](https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-List.html#v:sort) が遅すぎるため
 
-ライブラリの決め方や候補についての意見 (まだまだ募集中)
+パッケージの決め方や候補についての意見 (まだまだ募集中)
 
 - 基本的には haskell platform に含まれるものが使えたら良いんじゃないか？
 - 特定の問題で利用できるという明確な利用意図があった方が良いのかもしれない
@@ -238,7 +238,7 @@ MEMO
   
 ## 疑問
 
-- ライブラリをどれぐらいまでインストールできるか？
+- パッケージをどれぐらいまでインストールできるか？
 
 # コンパイルオプションについて
 
