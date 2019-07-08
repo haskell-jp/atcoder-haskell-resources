@@ -146,7 +146,6 @@ zlib-0.5.4.2
 
 言語を `bash` にして `ghc-pkg list` でもっと簡単に確認できた・・・。
 
-
 # ghc について
 
 素の GHC が依存するライブラリについては [Haskell Hierarchical Libraries](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/) や [GHC Commentary: Libraries](https://ghc.haskell.org/trac/ghc/wiki/Commentary/Libraries) に色々と説明がある。
@@ -420,9 +419,10 @@ RUN stack install \
 
 # この文書をまとめるにあたって
 
-以下の方々の発言を引用させていただきました。(slack, github name のアルファベット順)
+slack, github において、以下の方々にご協力いただいきました。(slack, github name のアルファベット順)
 
 - @Akihito Kirisaki
+- @as_capabl
 - @autotaker
 - @cohei
 - @fumieval
