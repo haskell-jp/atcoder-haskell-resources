@@ -200,6 +200,7 @@ MEMO
 まだブレインストーミング段階です。以下は slack に出てきたライブラリをリスト化したものです。(アルファベット順)
 
 - [array](https://hackage.haskell.org/package/array)
+- [attoparsec](https://hackage.haskell.org/package/attoparsec)
 - [bytestring](https://hackage.haskell.org/package/bytestring)
   - 入力処理で必須
 - [containers](https://hackage.haskell.org/package/containers)
@@ -210,7 +211,9 @@ MEMO
 - [heaps](https://hackage.haskell.org/package/heaps)
 - [lens](https://hackage.haskell.org/package/lens)
 - [mwc-random](https://hackage.haskell.org/package/mwc-random)
+- [parsec](https://hackage.haskell.org/package/parsec)
 - [psqueues](https://hackage.haskell.org/package/psqueues)
+- [repa](https://hackage.haskell.org/package/repa)
 - [unboxing-vector](https://hackage.haskell.org/package/unboxing-vector)
   - [unboxing-vectorの紹介：newtypeフレンドリーなunboxed vector](https://qiita.com/mod_poppo/items/cf6b66ff16464c170ac2)
 - [unordered-containers](https://hackage.haskell.org/package/unordered-containers)
