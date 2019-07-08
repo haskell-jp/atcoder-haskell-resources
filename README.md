@@ -196,6 +196,46 @@ MEMO
 
 # 追加パッケージについて
 
+パッケージの最新バージョンについては 2019/7/8 に確認したものです。
+
+AtCoder にインストールされているパッケージバージョンの確認方法は以下の通りです。
+
+```
+$ ghc-pkg list | grep <pkg_name>
+```
+
+現在の AtCoder 環境に含まれているパッケージ一覧
+
+パッケージ名 | 既存 | 最新 | 提案
+-----------|-----|------|-----
+array | [0.5.1.0](https://hackage.haskell.org/package/array-0.5.1.0) | [0.5.3.0](https://hackage.haskell.org/package/array-0.5.3.0)
+attoparsec | [0.13.0.1](https://hackage.haskell.org/package/attoparsec-0.13.0.1) | [0.13.2.2](https://hackage.haskell.org/package/attoparsec-0.13.2.2)
+bytestring | [0.10.6.0](https://hackage.haskell.org/package/bytestring-0.10.6.0) | [0.10.8.2](https://hackage.haskell.org/package/bytestring-0.10.8.2)
+containers | [0.5.6.2](https://hackage.haskell.org/package/containers-0.5.6.2) | [0.6.2.1](https://hackage.haskell.org/package/containers-0.6.2.1)
+fgl | [5.5.2.3](https://hackage.haskell.org/package/fgl-5.5.2.3) | [5.7.0.1](https://hackage.haskell.org/package/fgl-5.7.0.1)
+parsec | [3.1.9](https://hackage.haskell.org/package/parsec-3.1.9) | [3.1.13.0](https://hackage.haskell.org/package/parsec-3.1.13.0)
+primitive | [0.6.1.0](https://hackage.haskell.org/package/primitive-0.6.1.0) | [0.7.0.0](https://hackage.haskell.org/package/primitive-0.7.0.0)
+text | [1.2.1.3](https://hackage.haskell.org/package/text-1.2.1.3) | [1.2.3.1](https://hackage.haskell.org/package/text-1.2.3.1)
+unordered-containers | [0.2.5.1](https://hackage.haskell.org/package/unordered-containers-0.2.5.1) | [0.2.10.0](https://hackage.haskell.org/package/unordered-containers-0.2.10.0)
+vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12.0.3](https://hackage.haskell.org/package/vector-0.12.0.3)
+
+現在の AtCoder 環境に含まれていないパッケージ一覧
+
+パッケージ名 | 最新 | 追加理由
+-----------|------|--------
+extra | [1.6.17](https://hackage.haskell.org/package/extra-1.6.17)
+heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
+lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
+mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0)
+psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
+reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4)
+repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
+unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0)
+utility-ht | [0.0.14](https://hackage.haskell.org/package/utility-ht)
+vector-algorithms | [0.8.0.1](https://hackage.haskell.org/package/vector-algorithms-0.8.0.1)
+
+## 候補リスト
+
 まだブレインストーミング段階です。以下は slack に出てきたパッケージをリスト化したものです。(アルファベット順)
 
 - [array](https://hackage.haskell.org/package/array)
@@ -206,7 +246,8 @@ MEMO
 - [extra](https://hackage.haskell.org/package/extra)
 - [fgl](https://hackage.haskell.org/package/fgl)
   - グラフ
-- [hashmap](https://hackage.haskell.org/package/hashmap)
+- ~~[hashmap](https://hackage.haskell.org/package/hashmap)~~
+  - `Deprecated. in favor of unordered-containers` と書いてあるため、不採用
 - [heaps](https://hackage.haskell.org/package/heaps)
 - [lens](https://hackage.haskell.org/package/lens)
 - [mwc-random](https://hackage.haskell.org/package/mwc-random)
@@ -224,7 +265,7 @@ MEMO
 - [vector-algorithms](https://hackage.haskell.org/package/vector-algorithms)
   - [Data.List.sort](https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-List.html#v:sort) が遅すぎるため
 
-パッケージの決め方や候補についての意見 (まだまだ募集中)
+## パッケージの決め方や候補についての意見 (まだまだ募集中)
 
 - 基本的には haskell platform に含まれるものが使えたら良いんじゃないか？
 - 特定の問題で利用できるという明確な利用意図があった方が良いのかもしれない
@@ -239,7 +280,7 @@ MEMO
 - UnionFindとか地味に欲しいのですが地味に候補が多い
   - 参考: [Which union-find package to use?](https://www.reddit.com/r/haskell/comments/5qj8oc/which_unionfind_package_to_use/)
   
-## 疑問
+### 疑問
 
 - パッケージをどれぐらいまでインストールできるか？
 
