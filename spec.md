@@ -66,16 +66,16 @@ $ cabal v2-install --global --lib mwc-random-0.14.0.0 vector-algorithms-0.8.0.1
 以下の手順で動作確認が可能です。
 
 ```
-# ghc -V
+$ ghc -V
 The Glorious Glasgow Haskell Compilation System, version 8.6.5
 
-# cabal -V
+$ cabal -V
 cabal-install version 2.4.1.0
 compiled using version 2.4.1.0 of the Cabal library
 
-# echo -e "import System.Random.MWC\nmain = createSystemRandom >>= uniform >>= (print :: Int -> IO ())" > A.hs
-# ghc -o a.out -O2 A.hs
-# ./a.out
+$ echo -e "import System.Random.MWC\nmain = createSystemRandom >>= uniform >>= (print :: Int -> IO ())" > A.hs
+$ ghc -o a.out -O2 A.hs
+$ ./a.out
 -2530740540117274139
 ```
 
