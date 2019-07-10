@@ -28,12 +28,16 @@ DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install -y curl g++ gcc libgmp-dev libtinfo-dev make ncurses-dev python3 libnuma-dev coreutils
+$ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev
 
 $ export GHCUP_META_DOWNLOAD_URL=https://raw.githubusercontent.com/haskell-jp/atcoder-haskell-resources/master/download-urls
 
 $ curl https://get-ghcup.haskell.org -sSf | sh
 # 途中で何度かインストール作業がストップすることがありますが、その都度エンターキーを押して進みます。
+
+Installation done!
+
+Don't forget to source /home/ubuntu/.ghcup/env in your ~/.bashrc or similar.
 ```
 
 あとはパスを通せば完了です。
@@ -124,37 +128,25 @@ index b5b0253..ad63b04 100644
 
 事前に `apt-get` でインストールする依存関係は以下の通りです。
 
+- build-essential
 - curl
-- coreutils
-- g++
-- gcc
 - libgmp-dev
+- libffi-dev
+- libncurses-dev
 - libnuma-dev
-- libtinfo-dev
-- make
-- ncurses-dev
-- python3
-- realpath
-- xz-utils
 
 上記のリストは `ghcup print-system-reqs` の結果によるものです。
 
 ```shell
 $ ghcup print-system-reqs
-curl g++ gcc libgmp-dev libtinfo-dev make ncurses-dev python3 realpath xz-utils
+build-essential curl libgmp-dev libffi-dev libncurses-dev
 ```
 
-#### 注意点 1)
+#### 注意点
 
-上記のリストには含まれていませんが、`libnuma-dev` も必要なのでインストールしています。([Manual libnuma install required](https://gitlab.haskell.org/haskell/ghcup/issues/58))
-
-#### 注意点 2)
-
-`realpath` は Ubuntu 18.04 に含まれていないため `coreutils` をインストールしています。([Get rid of realpath](https://gitlab.haskell.org/haskell/ghcup/issues/31))
+`ghcup print-system-reqs` の結果には含まれていませんが、`libnuma-dev` も必要なのでインストールしています。([Manual libnuma install required](https://gitlab.haskell.org/haskell/ghcup/issues/58))
 
 ### 追加パッケージのインストールについて
-
-#### 注意点 1)
 
 パッケージを追加する場合は `cabal install --global mwc-random` のように `--global` オプションを追加します。
 
