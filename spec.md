@@ -56,7 +56,6 @@ export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:$PA
 ## 追加パッケージのインストール手順
 
 ```
-$ cabal v2-update
 $ cabal v2-install --global --lib mwc-random-0.14.0.0 vector-algorithms-0.8.0.1
 ```
 
