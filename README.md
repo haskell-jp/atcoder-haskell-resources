@@ -49,6 +49,20 @@ OS | Ubuntu
 コマンド | `ghc -o ./a.out -O2 ./Main.hs`
 インストール方法 | Haskell Platform
 
+AtCoder 2019/7 Language Update スプレッドシートに記載されている Judge Server Information は以下の通り。
+
+```
+"$ uname -a
+Linux ip-***-***-***-*** 4.15.0-1041-aws #43-Ubuntu SMP Thu Jun 6 13:39:11 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+$ cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION=""Ubuntu 18.04.2 LTS"""
+```
+
+また、`cat /proc/cpuinfo`, `cat /proc/meminfo` の結果、AWS の `t2.medium` で動いていると思われる。
+
 ## GlobalPackageDB に登録されているパッケージとバージョンの一覧
 
 ```haskell
@@ -196,7 +210,7 @@ MEMO
 
 # 追加パッケージについて
 
-パッケージの最新バージョンについては 2019/7/8 に確認したものです。
+パッケージの最新バージョンについては 2019/7/31 に確認したものです。
 
 AtCoder にインストールされているパッケージバージョンの確認方法は以下の通りです。
 
@@ -210,7 +224,7 @@ $ ghc-pkg list | grep <pkg_name>
 -----------|-----|------|-----
 array | [0.5.1.0](https://hackage.haskell.org/package/array-0.5.1.0) | [0.5.3.0](https://hackage.haskell.org/package/array-0.5.3.0)
 attoparsec | [0.13.0.1](https://hackage.haskell.org/package/attoparsec-0.13.0.1) | [0.13.2.2](https://hackage.haskell.org/package/attoparsec-0.13.2.2)
-bytestring | [0.10.6.0](https://hackage.haskell.org/package/bytestring-0.10.6.0) | [0.10.8.2](https://hackage.haskell.org/package/bytestring-0.10.8.2)
+bytestring | [0.10.6.0](https://hackage.haskell.org/package/bytestring-0.10.6.0) | [0.10.10.0](https://hackage.haskell.org/package/bytestring-0.10.10.0)
 containers | [0.5.6.2](https://hackage.haskell.org/package/containers-0.5.6.2) | [0.6.2.1](https://hackage.haskell.org/package/containers-0.6.2.1)
 fgl | [5.5.2.3](https://hackage.haskell.org/package/fgl-5.5.2.3) | [5.7.0.1](https://hackage.haskell.org/package/fgl-5.7.0.1)
 parsec | [3.1.9](https://hackage.haskell.org/package/parsec-3.1.9) | [3.1.13.0](https://hackage.haskell.org/package/parsec-3.1.13.0)
@@ -223,16 +237,17 @@ vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12
 
 パッケージ名 | 最新 | 追加理由
 -----------|------|--------
-extra | [1.6.17](https://hackage.haskell.org/package/extra-1.6.17)
+extra | [1.6.17](https://hackage.haskell.org/package/extra-1.6.17) | Prelude に定義されていない、あったら便利な関数が多数定義されているため。
 heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
 lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
-mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0)
+massiv | [0.4.0.0](https://hackage.haskell.org/package/massiv-0.4.0.0) | 高次元のaligned vectorを扱うmoduleであって，「mutable <-> immutable 相互変換可能」「map,fold等がそのまま使える」を満たしているものとして希望した．
+mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | 高速に乱数を生成するため。
 psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
 reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4)
 repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
-unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0)
+unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0) | [unboxing-vectorの紹介：newtypeフレンドリーなunboxed vector](https://qiita.com/mod_poppo/items/cf6b66ff16464c170ac2) を参照してください。
 utility-ht | [0.0.14](https://hackage.haskell.org/package/utility-ht)
-vector-algorithms | [0.8.0.1](https://hackage.haskell.org/package/vector-algorithms-0.8.0.1)
+vector-algorithms | [0.8.0.1](https://hackage.haskell.org/package/vector-algorithms-0.8.0.1) | Vector のソートを行うため。
 
 ## 候補リスト
 
