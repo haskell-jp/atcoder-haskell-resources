@@ -26,17 +26,41 @@ DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
 
 ## 環境構築手順
 
+ユーザおよび、インストール先ディレクトリ等は適宜ご変更ください。
+
+設定項目 | 値
+-------|------
+ユーザ名 `ubutnu`
+ghc 等のインストール場所 | `/opt`
+インストールしたパッケージの保存場所 | `/opt/.cabal/store`
+パッケージデータベースの保存場所 | `/opt/.cabal/store/ghc-8.6.5/package.db`
+package environment file の保存場所 | `/opt/.cabal/global.env`
+
+新たに追加する環境変数 | 値
+-------------------|-----------
+GHCUP_INSTALL_BASE_PREFIX | `/opt`
+GHC_ENVIRONMENT | `/opt/.cabal/global.env`
+
 ```
 $ sudo apt-get update
 $ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev
 
+$ echo "export GHCUP_INSTALL_BASE_PREFIX=/opt" >> ~/.bashrc
+$ source ~/.bashrc
+$ sudo chown ubuntu:ubuntu /opt
+
 $ curl https://get-ghcup.haskell.org -sSf | sh
 # 途中で何度かインストール作業がストップすることがありますが、その都度エンターキーを押して進みます。
 
-$ echo "source ~/.ghcup/env" >> ~/.bashrc
+$ echo "source /opt/.ghcup/env" >> ~/.bashrc
 $ source ~/.bashrc
 
-$ cabal v2-install --global --lib \
+$ mkdir -p /opt/.cabal/store
+$ ln -s /opt/.cabal/store /home/ubuntu/.cabal/store
+$ cabal user-config update -a store-dir:/opt/.cabal/store
+$ cabal user-config update -a package-db:/opt/.cabal/store
+
+$ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     array-0.5.3.0 \
     attoparsec-0.13.2.2 \
     bytestring-0.10.8.2 \
@@ -61,36 +85,55 @@ $ cabal v2-install --global --lib \
     vector-algorithms-0.8.0.1
 ```
 
+以下はコンテストユーザが行う設定です。
+
+```
+$ echo "export GHC_ENVIRONMENT=/opt/.cabal/global.env" >> ~/.bashrc
+$ echo "export GHCUP_INSTALL_BASE_PREFIX=/opt" >> ~/.bashrc
+$ echo "source /opt/.ghcup/env" >> ~/.bashrc
+$ source ~/.bashrc
+```
+
 ## 解説
 
 ### コンパイラ等のインストール
 
-この作業によって ghcup, GHC, cabal がインストールされます。(apt-get でインストールするものについては補足事項を参照ください)
+この作業によって ghcup, GHC, cabal がインストールされます。(apt-get でインストールされるパッケージについては補足事項を参照ください)
+
+作業するユーザは `ubuntu` (一般ユーザ) として進めます。また、インストール先ディレクトリは環境変数 `GHCUP_INSTALL_BASE_PREFIX` によって変更できます。
 
 ```
 $ sudo apt-get update
 $ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev
+
+# インストール先のディレクトリを指定します。(今回は /opt 以下にインストール)
+$ echo "export GHCUP_INSTALL_BASE_PREFIX=/opt" >> ~/.bashrc
+$ source ~/.bashrc
+$ sudo chown ubuntu:ubuntu /opt
 
 $ curl https://get-ghcup.haskell.org -sSf | sh
 # 途中で何度かインストール作業がストップすることがありますが、その都度エンターキーを押して進みます。
 
 Installation done!
 
-Don't forget to source /home/ubuntu/.ghcup/env in your ~/.bashrc or similar.
+Don't forget to source /opt/.ghcup/env in your ~/.bashrc or similar.
 ```
 
 あとはパスを通せば完了です。
 
 ```
-$ echo "source ~/.ghcup/env" >> ~/.bashrc
+$ echo "source /opt/.ghcup/env" >> ~/.bashrc
+$ source ~/.bashrc
 ```
 
-`~/.ghcup/env` ファイルの内容は以下の通りです。
+`/opt/.ghcup/env` ファイルの内容は以下の通りです。
 
 ```
-$ cat ~/.ghcup/env
+$ cat /opt/.ghcup/env
 export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:$PATH"
 ```
+
+#### バージョンの確認
 
 インストールされたツールのバージョンは以下コマンドで確認できます。
 
@@ -107,12 +150,6 @@ The Glorious Glasgow Haskell Compilation System, version 8.6.5
 ```
 
 ### 追加パッケージ
-
-インストールされているパッケージは以下のコマンドで確認できます。
-
-```
-$ ghc-pkg list --global
-```
 
 #### 現状の AtCoder で利用可能なパッケージ
 
@@ -154,12 +191,21 @@ vector-algorithms | [0.8.0.1](https://hackage.haskell.org/package/vector-algorit
 
 #### パッケージのインストール
 
-以下のコマンドでパッケージをインストールできます。
+まずはパッケージのインストール先ディレクトリを変更します。通常のままだとインストールしたパッケージを別ユーザが利用できないため、このような変更を加えます。([5.3.1. Local versus external packages](https://www.haskell.org/cabal/users-guide/nix-local-build.html))
 
-また、`--global` オプションを指定しない場合、`--user` が指定されたことになり、`unix` ユーザーが変わると見えなくなってしまいます。
+ここでは `/opt/.cabal/store` にパッケージをインストールします。また [Environment file from `cabal new-install ... --package-env .` has wrong store dir. #5925](https://github.com/haskell/cabal/issues/5925) の問題を回避するためにシンボリックリンクを張ります。
 
 ```
-$ cabal v2-install --global --lib \
+$ mkdir -p /opt/.cabal/store
+$ ln -s /opt/.cabal/store /home/ubuntu/.cabal/store
+$ cabal user-config update -a store-dir:/opt/.cabal/store
+$ cabal user-config update -a package-db:/opt/.cabal/store
+```
+
+次に以下のコマンドでパッケージをインストールできます。
+
+```
+$ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     array-0.5.3.0 \
     attoparsec-0.13.2.2 \
     bytestring-0.10.8.2 \
@@ -184,11 +230,58 @@ $ cabal v2-install --global --lib \
     vector-algorithms-0.8.0.1
 ```
 
+異なるユーザでパッケージを利用するためにオプションをいくつか指定します。
+
+オプション | 内容
+---------|--------
+`--package-env` | `package environment file` の保存先とファイル名を指定します。(詳しくは [5.4.11. cabal new-install](https://www.haskell.org/cabal/users-guide/nix-local-build.html#cabal-new-install), [10.9.5.2. Package environments](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/packages.html#package-environments) をご参照ください)
+
+#### 追加されたパッケージの確認方法
+
+インストールされているパッケージは以下のコマンドで確認できます。
+
+```
+$ ghc-pkg list --package-db=/opt/.cabal/store/ghc-8.6.5/package.db/
+```
+
+上記コマンドの出力のうち、実際に利用可能なパッケージは `package environment file` に列挙されているパッケージに制限されます。
+
+```
+$ cat /opt/.cabal/global.env
+```
+
 ## 動作確認
 
 以下の手順で動作確認が可能です。
 
+`GHC_ENVIRONMENT` 環境変数に `package environment file` のパスを設定しておくと GHC 自動的にそのパスを参照します。
+
 ```
+# パッケージデータベースの参照先を更新
+$ echo "export GHC_ENVIRONMENT=/opt/.cabal/global.env" >> ~/.bashrc
+$ source ~/.bashrc
+
+$ echo -e "import System.Random.MWC\nmain = createSystemRandom >>= uniform >>= (print :: Int -> IO ())" > A.hs
+
+$ ghc -o a.out -O2 A.hs
+$ ./a.out
+-2530740540117274139  # 乱数生成プログラムなので、実行結果は実行ごとに異なります
+```
+
+## ユーザを切り替えた場合の動作確認
+
+以下の手順で動作確認が可能です。
+
+```
+$ sudo adduser contest
+$ su contest
+$ cd
+
+$ echo "export GHC_ENVIRONMENT=/opt/.cabal/global.env" >> ~/.bashrc
+$ echo "export GHCUP_INSTALL_BASE_PREFIX=/opt" >> ~/.bashrc
+$ echo "source /opt/.ghcup/env" >> ~/.bashrc
+$ source ~/.bashrc
+
 $ echo -e "import System.Random.MWC\nmain = createSystemRandom >>= uniform >>= (print :: Int -> IO ())" > A.hs
 
 $ ghc -o a.out -O2 A.hs
