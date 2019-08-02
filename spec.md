@@ -181,7 +181,7 @@ extra | [1.6.17](https://hackage.haskell.org/package/extra-1.6.17) | Prelude に
 heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
 lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
 massiv | [0.4.0.0](https://hackage.haskell.org/package/massiv-0.4.0.0) | 高次元のaligned vectorを扱うmoduleであって，「mutable <-> immutable 相互変換可能」「map,fold等がそのまま使える」を満たしているものとして希望した．
-mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | System.Random では乱数を生成するため。
+mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | System.Random の乱数生成処理が遅いため。[Haskellの乱数事情](https://qiita.com/philopon/items/8f647fc8dafe66b7381b), [Haskellの乱数生成を勉強中 - 今度こそ最後か　やっとちゃんと速度測れた](http://blog.livedoor.jp/rtabaladi_58/archives/57642581.html) などの記事が参考になります。
 psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
 reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4)
 repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
