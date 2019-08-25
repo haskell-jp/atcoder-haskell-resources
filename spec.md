@@ -84,6 +84,7 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     reflection-2.1.4 \
     repa-3.4.1.4 \
     text-1.2.3.1 \
+    tf-random-0.5 \
     transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
     unordered-containers-0.2.10.0 \
@@ -179,6 +180,7 @@ parsec | [3.1.9](https://hackage.haskell.org/package/parsec-3.1.9) | [3.1.13.0](
 primitive | [0.6.1.0](https://hackage.haskell.org/package/primitive-0.6.1.0) | [0.7.0.0](https://hackage.haskell.org/package/primitive-0.7.0.0)
 random | [1.1](https://hackage.haskell.org/package/random-1.1) | [1.1](https://hackage.haskell.org/package/random-1.1)
 text | [1.2.1.3](https://hackage.haskell.org/package/text-1.2.1.3) | [1.2.3.1](https://hackage.haskell.org/package/text-1.2.3.1)
+tf-random | [0.5](https://hackage.haskell.org/package/tf-random-0.5) | [0.5](https://hackage.haskell.org/package/tf-random-0.5)
 transformers | [0.4.2.0](https://hackage.haskell.org/package/transformers-0.4.2.0) | [0.5.6.2](https://hackage.haskell.org/package/transformers-0.5.6.2)
 unordered-containers | [0.2.5.1](https://hackage.haskell.org/package/unordered-containers-0.2.5.1) | [0.2.10.0](https://hackage.haskell.org/package/unordered-containers-0.2.10.0)
 vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12.0.3](https://hackage.haskell.org/package/vector-0.12.0.3)
