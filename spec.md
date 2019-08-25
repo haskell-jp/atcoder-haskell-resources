@@ -4,7 +4,7 @@
 
 `ghcup` は比較的最近出てきたツールなので、使ったことが無い方も多いとは思いますが、コンパイラ (ghc) とビルドツール (cabal-install) のセットアップを自動的に行います。
 
-この作業によって、以下のバージョンの `ghc`, `cabal` がインストールされます。(2019/7/31 確認)
+この作業によって、以下のバージョンの `ghc`, `cabal` がインストールされます。(2019/8/25 確認)
 
 　| バージョン
 ----|----
@@ -30,7 +30,7 @@ DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
 
 設定項目 | 値
 -------|------
-ユーザ名 `ubutnu`
+ユーザ名 | `ubutnu`
 ghc 等のインストール場所 | `/opt`
 インストールしたパッケージの保存場所 | `/opt/.cabal/store`
 パッケージデータベースの保存場所 | `/opt/.cabal/store/ghc-8.6.5/package.db`
@@ -67,7 +67,7 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     bytestring-0.10.8.2 \
     containers-0.6.0.1 \
     deepseq-1.4.4.0 \
-    extra-1.6.17 \
+    extra-1.6.18 \
     fgl-5.7.0.1 \
     heaps-0.3.6.1 \
     integer-logarithms-1.0.3 \
@@ -84,6 +84,7 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     reflection-2.1.4 \
     repa-3.4.1.4 \
     text-1.2.3.1 \
+    tf-random-0.5 \
     transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
     unordered-containers-0.2.10.0 \
@@ -107,7 +108,7 @@ $ source ~/.bashrc
 
 この作業によって ghcup, GHC, cabal がインストールされます。(apt-get でインストールされるパッケージについては補足事項を参照ください)
 
-作業するユーザは `ubuntu` (一般ユーザ) として進めます。また、インストール先ディレクトリは環境変数 `GHCUP_INSTALL_BASE_PREFIX` によって変更できます。
+作業するユーザは `ubuntu` (管理者権限を持つユーザ) として進めます。また、インストール先ディレクトリは環境変数 `GHCUP_INSTALL_BASE_PREFIX` によって変更できます。
 
 ```
 $ sudo apt-get update
@@ -123,10 +124,17 @@ $ curl https://get-ghcup.haskell.org -sSf | sh
 
 Installation done!
 
-Don't forget to source /opt/.ghcup/env in your ~/.bashrc or similar.
+In order to run ghc and cabal, you need to adjust your PATH variable.
+You may want to source '/opt/.ghcup/env' in your shell
+configuration to do so (e.g. ~/.bashrc).
+
+Detected ~/.bashrc on your system...
+If you want ghcup to automatically fix your ~/.bashrc to include the required PATH variable
+answer with YES and press ENTER (at your own risk).
+Otherwise press ctrl-c to abort.
 ```
 
-あとはパスを通せば完了です。
+あとはパスを自分で通せば完了です。
 
 ```
 $ echo "source /opt/.ghcup/env" >> ~/.bashrc
@@ -166,15 +174,21 @@ The Glorious Glasgow Haskell Compilation System, version 8.6.5
 
 パッケージ名 | 既存バージョン | 提案バージョン
 -----------|-----|-----
+QuickCheck | [2.8.1](https://hackage.haskell.org/package/QuickCheck-2.8.1) | [2.13.2](https://hackage.haskell.org/package/QuickCheck-2.13.2)
 array | [0.5.1.0](https://hackage.haskell.org/package/array-0.5.1.0) | [0.5.3.0](https://hackage.haskell.org/package/array-0.5.3.0)
 attoparsec | [0.13.0.1](https://hackage.haskell.org/package/attoparsec-0.13.0.1) | [0.13.2.2](https://hackage.haskell.org/package/attoparsec-0.13.2.2)
 bytestring | [0.10.6.0](https://hackage.haskell.org/package/bytestring-0.10.6.0) | [0.10.8.2](https://hackage.haskell.org/package/bytestring-0.10.8.2)
 containers | [0.5.6.2](https://hackage.haskell.org/package/containers-0.5.6.2) | [0.6.0.1](https://hackage.haskell.org/package/containers-0.6.0.1)
+deepseq | [1.4.1.1](https://hackage.haskell.org/package/deepseq-1.4.1.1) | [1.4.4.0](https://hackage.haskell.org/package/deepseq-1.4.4.0)
 fgl | [5.5.2.3](https://hackage.haskell.org/package/fgl-5.5.2.3) | [5.7.0.1](https://hackage.haskell.org/package/fgl-5.7.0.1)
 mtl | [2.2.1](https://hackage.haskell.org/package/mtl-2.2.1) | [2.2.2](https://hackage.haskell.org/package/mtl-2.2.2)
+parallel | [3.2.0.6](https://hackage.haskell.org/package/parallel-3.2.0.6) | [3.2.2.0](https://hackage.haskell.org/package/parallel-3.2.2.0)
 parsec | [3.1.9](https://hackage.haskell.org/package/parsec-3.1.9) | [3.1.13.0](https://hackage.haskell.org/package/parsec-3.1.13.0)
 primitive | [0.6.1.0](https://hackage.haskell.org/package/primitive-0.6.1.0) | [0.7.0.0](https://hackage.haskell.org/package/primitive-0.7.0.0)
+random | [1.1](https://hackage.haskell.org/package/random-1.1) | [1.1](https://hackage.haskell.org/package/random-1.1)
 text | [1.2.1.3](https://hackage.haskell.org/package/text-1.2.1.3) | [1.2.3.1](https://hackage.haskell.org/package/text-1.2.3.1)
+tf-random | [0.5](https://hackage.haskell.org/package/tf-random-0.5) | [0.5](https://hackage.haskell.org/package/tf-random-0.5)
+transformers | [0.4.2.0](https://hackage.haskell.org/package/transformers-0.4.2.0) | [0.5.6.2](https://hackage.haskell.org/package/transformers-0.5.6.2)
 unordered-containers | [0.2.5.1](https://hackage.haskell.org/package/unordered-containers-0.2.5.1) | [0.2.10.0](https://hackage.haskell.org/package/unordered-containers-0.2.10.0)
 vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12.0.3](https://hackage.haskell.org/package/vector-0.12.0.3)
 
@@ -182,15 +196,17 @@ vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12
 
 今回の言語アップデートで、新たに追加したいパッケージを以下の表にまとめました。
 
-パッケージ名 | 最新バージョン | 追加理由
+パッケージ名 | 提案バージョン | 追加理由
 -----------|------|--------
-extra | [1.6.17](https://hackage.haskell.org/package/extra-1.6.17) | Prelude に定義されていない、あったら便利な関数が多数定義されているため。
+extra | [1.6.18](https://hackage.haskell.org/package/extra-1.6.18) | Prelude に定義されていない、あったら便利な関数が多数定義されているため。
+integer-logarithms | [1.0.3](https://hackage.haskell.org/package/integer-logarithms-1.0.3) | 整数のlogを取るため。
 heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
 lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
 massiv | [0.4.0.0](https://hackage.haskell.org/package/massiv-0.4.0.0) | 高次元のaligned vectorを扱うmoduleであって，「mutable <-> immutable 相互変換可能」「map,fold等がそのまま使える」を満たしているものとして希望した．
+mono-traversable | [1.0.12.0](https://hackage.haskell.org/package/mono-traversable-1.0.12.0) | ByteStringやText等をFoldable/Traversableっぽく扱うためのインターフェースを提供している。
 mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | System.Random の乱数生成処理が遅いため。[Haskellの乱数事情](https://qiita.com/philopon/items/8f647fc8dafe66b7381b), [Haskellの乱数生成を勉強中 - 今度こそ最後か　やっとちゃんと速度測れた](http://blog.livedoor.jp/rtabaladi_58/archives/57642581.html) などの記事が参考になります。
 psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
-reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4)
+reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4) | 実行時の値に基づいた型レベル自然数を作るため。
 repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
 unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0) | [unboxing-vectorの紹介：newtypeフレンドリーなunboxed vector](https://qiita.com/mod_poppo/items/cf6b66ff16464c170ac2) を参照してください。
 utility-ht | [0.0.14](https://hackage.haskell.org/package/utility-ht)
@@ -213,27 +229,35 @@ $ cabal user-config update -a package-db:/opt/.cabal/store
 
 ```
 $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
+    QuickCheck-2.13.2 \
     array-0.5.3.0 \
     attoparsec-0.13.2.2 \
     bytestring-0.10.8.2 \
     containers-0.6.0.1 \
+    deepseq-1.4.4.0 \
+    extra-1.6.18 \
     fgl-5.7.0.1 \
-    mtl-2.2.2 \
-    parsec-3.1.13.0 \
-    primitive-0.7.0.0 \
-    text-1.2.3.1 \
-    unordered-containers-0.2.10.0 \
-    vector-0.12.0.3 \
-    extra-1.6.17 \
     heaps-0.3.6.1 \
+    integer-logarithms-1.0.3 \
     lens-4.17.1 \
     massiv-0.4.0.0 \
+    mono-traversable-1.0.12.0 \
+    mtl-2.2.2 \
     mwc-random-0.14.0.0 \
+    parallel-3.2.2.0 \
+    parsec-3.1.13.0 \
+    primitive-0.7.0.0 \
     psqueues-0.2.7.2 \
+    random-1.1 \
     reflection-2.1.4 \
     repa-3.4.1.4 \
+    text-1.2.3.1 \
+    tf-random-0.5 \
+    transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
+    unordered-containers-0.2.10.0 \
     utility-ht-0.0.14 \
+    vector-0.12.0.3 \
     vector-algorithms-0.8.0.1
 ```
 
@@ -241,7 +265,7 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
 
 オプション | 内容
 ---------|--------
-`--package-env` | `package environment file` の保存先とファイル名を指定します。(詳しくは [5.4.11. cabal new-install](https://www.haskell.org/cabal/users-guide/nix-local-build.html#cabal-new-install), [10.9.5.2. Package environments](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/packages.html#package-environments) をご参照ください)
+`--package-env` | `package environment file` の保存先とファイル名を指定します。(詳しくは [5.4.11. cabal new-install](https://www.haskell.org/cabal/users-guide/nix-local-build.html#cabal-new-install), [10.9.5.2. Package environments](https://downloads.haskell.org/~ghc/8.6.5/docs/html/users_guide/packages.html#package-environments) をご参照ください)
 
 #### 追加されたパッケージの確認方法
 
@@ -261,7 +285,7 @@ $ cat /opt/.cabal/global.env
 
 以下の手順で動作確認が可能です。
 
-`GHC_ENVIRONMENT` 環境変数に `package environment file` のパスを設定しておくと GHC 自動的にそのパスを参照します。
+`GHC_ENVIRONMENT` 環境変数に `package environment file` のパスを設定しておくと GHC は自動的にそのパスを参照します。
 
 ```
 # パッケージデータベースの参照先を更新
@@ -275,7 +299,7 @@ $ ./a.out
 -2530740540117274139  # 乱数生成プログラムなので、実行結果は実行ごとに異なります
 ```
 
-## ユーザを切り替えた場合の動作確認
+### ユーザを切り替えた場合の動作確認
 
 以下の手順で動作確認が可能です。
 
