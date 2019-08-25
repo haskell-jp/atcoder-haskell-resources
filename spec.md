@@ -61,27 +61,34 @@ $ cabal user-config update -a store-dir:/opt/.cabal/store
 $ cabal user-config update -a package-db:/opt/.cabal/store
 
 $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
+    QuickCheck-2.13.2 \
     array-0.5.3.0 \
     attoparsec-0.13.2.2 \
     bytestring-0.10.8.2 \
     containers-0.6.0.1 \
-    fgl-5.7.0.1 \
-    mtl-2.2.2 \
-    parsec-3.1.13.0 \
-    primitive-0.7.0.0 \
-    text-1.2.3.1 \
-    unordered-containers-0.2.10.0 \
-    vector-0.12.0.3 \
+    deepseq-1.4.4.0 \
     extra-1.6.17 \
+    fgl-5.7.0.1 \
     heaps-0.3.6.1 \
+    integer-logarithms-1.0.3 \
     lens-4.17.1 \
     massiv-0.4.0.0 \
+    mono-traversable-1.0.12.0 \
+    mtl-2.2.2 \
     mwc-random-0.14.0.0 \
+    parallel-3.2.2.0 \
+    parsec-3.1.13.0 \
+    primitive-0.7.0.0 \
     psqueues-0.2.7.2 \
+    random-1.1 \
     reflection-2.1.4 \
     repa-3.4.1.4 \
+    text-1.2.3.1 \
+    transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
+    unordered-containers-0.2.10.0 \
     utility-ht-0.0.14 \
+    vector-0.12.0.3 \
     vector-algorithms-0.8.0.1
 ```
 
