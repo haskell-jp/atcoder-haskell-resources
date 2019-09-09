@@ -9,7 +9,7 @@
 　| バージョン
 ----|----
 ghc | 8.6.5
-cabal | 2.4.1.0
+cabal | 3.0.0.0
 ghcup | 0.0.7
 
 また、検証を行なったマシン環境は以下の通りです。
@@ -157,8 +157,8 @@ $ ghcup -V
 0.0.7
 
 $ cabal -V
-cabal-install version 2.4.1.0
-compiled using version 2.4.1.0 of the Cabal library
+cabal-install version 3.0.0.0
+compiled using version 3.0.0.0 of the Cabal library
 
 $ ghc -V
 The Glorious Glasgow Haskell Compilation System, version 8.6.5
