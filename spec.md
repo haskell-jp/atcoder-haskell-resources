@@ -65,6 +65,7 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     array-0.5.3.0 \
     attoparsec-0.13.2.2 \
     bytestring-0.10.8.2 \
+    bytestring-to-vector-0.3.0.1 \
     containers-0.6.0.1 \
     deepseq-1.4.4.0 \
     extra-1.6.18 \
@@ -199,6 +200,7 @@ vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12
 パッケージ名 | 提案バージョン | 追加理由
 -----------|------|--------
 extra | [1.6.18](https://hackage.haskell.org/package/extra-1.6.18) | Prelude に定義されていない、あったら便利な関数が多数定義されているため。
+bytestring-to-vector | [0.3.0.1](https://hackage.haskell.org/package/bytestring-to-vector-0.3.0.1) | ByteString を Word8 (バイト) の配列 に効率的に変換するため。 直後に可変配列に変換する場合の用法を想定している。
 integer-logarithms | [1.0.3](https://hackage.haskell.org/package/integer-logarithms-1.0.3) | 整数のlogを取るため。
 heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
 lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
@@ -233,6 +235,7 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     array-0.5.3.0 \
     attoparsec-0.13.2.2 \
     bytestring-0.10.8.2 \
+    bytestring-to-vector-0.3.0.1 \
     containers-0.6.0.1 \
     deepseq-1.4.4.0 \
     extra-1.6.18 \
