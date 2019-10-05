@@ -30,7 +30,7 @@ DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
 
 設定項目 | 値
 -------|------
-ユーザ名 | `ubutnu`
+ユーザ名 | `ubuntu`
 ghc 等のインストール場所 | `/opt`
 インストールしたパッケージの保存場所 | `/opt/.cabal/store`
 パッケージデータベースの保存場所 | `/opt/.cabal/store/ghc-8.6.5/package.db`
