@@ -16,12 +16,12 @@ ghcup | 0.0.7
 
 ```
 $ uname -a
-Linux ip-***-***-***-*** 4.15.0-1044-aws #46-Ubuntu SMP Thu Jul 4 13:38:28 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+Linux ip-***-***-***-*** 4.15.0-1051-aws #53-Ubuntu SMP Wed Sep 18 13:35:53 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 $ cat /etc/lsb-release
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=18.04
 DISTRIB_CODENAME=bionic
-DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
+DISTRIB_DESCRIPTION="Ubuntu 18.04.3 LTS"
 ```
 
 ## 環境構築手順
@@ -43,7 +43,7 @@ GHC_ENVIRONMENT | `/opt/.cabal/global.env`
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev
+$ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev libtinfo5
 
 $ echo "export GHCUP_INSTALL_BASE_PREFIX=/opt" >> ~/.bashrc
 $ source ~/.bashrc
@@ -63,18 +63,18 @@ $ cabal user-config update -a package-db:/opt/.cabal/store
 $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     QuickCheck-2.13.2 \
     array-0.5.3.0 \
-    attoparsec-0.13.2.2 \
+    attoparsec-0.13.2.3 \
     bytestring-0.10.8.2 \
     containers-0.6.0.1 \
     deepseq-1.4.4.0 \
     extra-1.6.18 \
     fgl-5.7.0.1 \
-    heaps-0.3.6.1 \
     hashable-1.3.0.0 \
+    heaps-0.3.6.1 \
     integer-logarithms-1.0.3 \
-    lens-4.17.1 \
-    massiv-0.4.0.0 \
-    mono-traversable-1.0.12.0 \
+    lens-4.18.1 \
+    massiv-0.4.2.0 \
+    mono-traversable-1.0.13.0 \
     mtl-2.2.2 \
     mutable-containers-0.3.4 \
     mwc-random-0.14.0.0 \
@@ -83,10 +83,10 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     primitive-0.7.0.0 \
     psqueues-0.2.7.2 \
     random-1.1 \
-    reflection-2.1.4 \
+    reflection-2.1.5 \
     repa-3.4.1.4 \
-    text-1.2.3.1 \
     template-haskell-2.14.0.0 \
+    text-1.2.3.1 \
     tf-random-0.5 \
     transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
@@ -116,7 +116,7 @@ $ source ~/.bashrc
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev
+$ sudo apt-get install -y build-essential curl libgmp-dev libffi-dev libncurses-dev libnuma-dev libtinfo5
 
 # インストール先のディレクトリを指定します。(今回は /opt 以下にインストール)
 $ echo "export GHCUP_INSTALL_BASE_PREFIX=/opt" >> ~/.bashrc
@@ -180,7 +180,7 @@ The Glorious Glasgow Haskell Compilation System, version 8.6.5
 -----------|-----|-----
 QuickCheck | [2.8.1](https://hackage.haskell.org/package/QuickCheck-2.8.1) | [2.13.2](https://hackage.haskell.org/package/QuickCheck-2.13.2)
 array | [0.5.1.0](https://hackage.haskell.org/package/array-0.5.1.0) | [0.5.3.0](https://hackage.haskell.org/package/array-0.5.3.0)
-attoparsec | [0.13.0.1](https://hackage.haskell.org/package/attoparsec-0.13.0.1) | [0.13.2.2](https://hackage.haskell.org/package/attoparsec-0.13.2.2)
+attoparsec | [0.13.0.1](https://hackage.haskell.org/package/attoparsec-0.13.0.1) | [0.13.2.3](https://hackage.haskell.org/package/attoparsec-0.13.2.3)
 bytestring | [0.10.6.0](https://hackage.haskell.org/package/bytestring-0.10.6.0) | [0.10.8.2](https://hackage.haskell.org/package/bytestring-0.10.8.2)
 containers | [0.5.6.2](https://hackage.haskell.org/package/containers-0.5.6.2) | [0.6.0.1](https://hackage.haskell.org/package/containers-0.6.0.1)
 deepseq | [1.4.1.1](https://hackage.haskell.org/package/deepseq-1.4.1.1) | [1.4.4.0](https://hackage.haskell.org/package/deepseq-1.4.4.0)
@@ -205,20 +205,20 @@ vector | [0.11.0.0](https://hackage.haskell.org/package/vector-0.11.0.0) | [0.12
 パッケージ名 | 提案バージョン | 追加理由
 -----------|------|--------
 extra | [1.6.18](https://hackage.haskell.org/package/extra-1.6.18) | Prelude に定義されていない、あったら便利な関数が多数定義されているため。
-integer-logarithms | [1.0.3](https://hackage.haskell.org/package/integer-logarithms-1.0.3) | 整数のlogを取るため。
+integer-logarithms | [1.0.3](https://hackage.haskell.org/package/integer-logarithms-1.0.3) | 整数の log を取るため。
 heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
-lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
-massiv | [0.4.0.0](https://hackage.haskell.org/package/massiv-0.4.0.0) | 高次元のaligned vectorを扱うmoduleであって，「mutable <-> immutable 相互変換可能」「map,fold等がそのまま使える」を満たしているものとして希望した．
-mono-traversable | [1.0.12.0](https://hackage.haskell.org/package/mono-traversable-1.0.12.0) | ByteStringやText等をFoldable/Traversableっぽく扱うためのインターフェースを提供している。
-mutable-containers | [0.3.4](https://hackage.haskell.org/package/mutable-containers-0.3.4) | Unboxed MutVarなど、高速な手続き型アルゴリズムの実装に用いることのできるユーティリティを含むため。
+lens | [4.18.1](https://hackage.haskell.org/package/lens-4.18.1)
+massiv | [0.4.2.0](https://hackage.haskell.org/package/massiv-0.4.2.0) | 高次元の aligned vector を扱う module であって，「mutable <-> immutable 相互変換可能」「map,fold等がそのまま使える」を満たしているものとして希望した．
+mono-traversable | [1.0.13.0](https://hackage.haskell.org/package/mono-traversable-1.0.13.0) | ByteString や Text 等を Foldable/Traversable っぽく扱うためのインターフェースを提供している。
+mutable-containers | [0.3.4](https://hackage.haskell.org/package/mutable-containers-0.3.4) | Unboxed MutVar など、高速な手続き型アルゴリズムの実装に用いることのできるユーティリティを含むため。
 mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | System.Random の乱数生成処理が遅いため。[Haskellの乱数事情](https://qiita.com/philopon/items/8f647fc8dafe66b7381b), [Haskellの乱数生成を勉強中 - 今度こそ最後か　やっとちゃんと速度測れた](http://blog.livedoor.jp/rtabaladi_58/archives/57642581.html) などの記事が参考になります。
 psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
-reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4) | 実行時の値に基づいた型レベル自然数を作るため。
+reflection | [2.1.5](https://hackage.haskell.org/package/reflection-2.1.5) | 実行時の値に基づいた型レベル自然数を作るため。
 repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
 unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0) | [unboxing-vectorの紹介：newtypeフレンドリーなunboxed vector](https://qiita.com/mod_poppo/items/cf6b66ff16464c170ac2) を参照してください。
 utility-ht | [0.0.14](https://hackage.haskell.org/package/utility-ht)
 vector-algorithms | [0.8.0.1](https://hackage.haskell.org/package/vector-algorithms-0.8.0.1) | Vector のソートを行うため。
-vector-th-unbox | [0.3.0.1](https://hackage.haskell.org/package/vector-th-unbox) | unboxing-vectorに並び、 newtype に対して unboxed Vector を用いるため。
+vector-th-unbox | [0.2.1.7](https://hackage.haskell.org/package/vector-th-unbox-0.2.1.7) | unboxing-vector に並び、newtype に対して unboxed Vector を用いるため。
 
 #### パッケージのインストール
 
@@ -239,18 +239,18 @@ $ cabal user-config update -a package-db:/opt/.cabal/store
 $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     QuickCheck-2.13.2 \
     array-0.5.3.0 \
-    attoparsec-0.13.2.2 \
+    attoparsec-0.13.2.3 \
     bytestring-0.10.8.2 \
     containers-0.6.0.1 \
     deepseq-1.4.4.0 \
     extra-1.6.18 \
     fgl-5.7.0.1 \
-    heaps-0.3.6.1 \
     hashable-1.3.0.0 \
+    heaps-0.3.6.1 \
     integer-logarithms-1.0.3 \
-    lens-4.17.1 \
-    massiv-0.4.0.0 \
-    mono-traversable-1.0.12.0 \
+    lens-4.18.1 \
+    massiv-0.4.2.0 \
+    mono-traversable-1.0.13.0 \
     mtl-2.2.2 \
     mutable-containers-0.3.4 \
     mwc-random-0.14.0.0 \
@@ -259,10 +259,10 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     primitive-0.7.0.0 \
     psqueues-0.2.7.2 \
     random-1.1 \
-    reflection-2.1.4 \
+    reflection-2.1.5 \
     repa-3.4.1.4 \
-    text-1.2.3.1 \
     template-haskell-2.14.0.0 \
+    text-1.2.3.1 \
     tf-random-0.5 \
     transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
@@ -332,6 +332,8 @@ $ ./a.out
 -2530740540117274139
 ```
 
+また、インストールした全パッケージのモジュールを import するだけのファイル [Import.hs](./Import.hs) を作成し、無事にコンパイルできることを確認しました。
+
 ## 補足事項
 
 ### 依存関係について
@@ -344,12 +346,13 @@ $ ./a.out
 - libffi-dev
 - libncurses-dev
 - libnuma-dev
+- libtinfo5
 
 上記のリストは `ghcup print-system-reqs` の結果によるものです。
 
 ```shell
 $ ghcup print-system-reqs
-build-essential curl libgmp-dev libffi-dev libncurses-dev
+build-essential curl libgmp-dev libffi-dev libncurses-dev libtinfo5
 ```
 
 #### 注意点
