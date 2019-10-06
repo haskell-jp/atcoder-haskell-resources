@@ -70,11 +70,13 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     extra-1.6.18 \
     fgl-5.7.0.1 \
     heaps-0.3.6.1 \
+    hashable-1.3.0.0 \
     integer-logarithms-1.0.3 \
     lens-4.17.1 \
     massiv-0.4.0.0 \
     mono-traversable-1.0.12.0 \
     mtl-2.2.2 \
+    mutable-containers-0.3.4 \
     mwc-random-0.14.0.0 \
     parallel-3.2.2.0 \
     parsec-3.1.13.0 \
@@ -84,13 +86,15 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     reflection-2.1.4 \
     repa-3.4.1.4 \
     text-1.2.3.1 \
+    template-haskell-2.14.0.0 \
     tf-random-0.5 \
     transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
     unordered-containers-0.2.10.0 \
     utility-ht-0.0.14 \
     vector-0.12.0.3 \
-    vector-algorithms-0.8.0.1
+    vector-algorithms-0.8.0.1 \
+    vector-th-unbox-0.2.1.7
 ```
 
 以下はコンテストユーザが行う設定です。
@@ -181,11 +185,13 @@ bytestring | [0.10.6.0](https://hackage.haskell.org/package/bytestring-0.10.6.0)
 containers | [0.5.6.2](https://hackage.haskell.org/package/containers-0.5.6.2) | [0.6.0.1](https://hackage.haskell.org/package/containers-0.6.0.1)
 deepseq | [1.4.1.1](https://hackage.haskell.org/package/deepseq-1.4.1.1) | [1.4.4.0](https://hackage.haskell.org/package/deepseq-1.4.4.0)
 fgl | [5.5.2.3](https://hackage.haskell.org/package/fgl-5.5.2.3) | [5.7.0.1](https://hackage.haskell.org/package/fgl-5.7.0.1)
+hashable | [1.2.3.3](https://hackage.haskell.org/package/hashable-1.2.3.3) | [1.3.0.0](https://hackage.haskell.org/package/hashable-1.3.0.0)
 mtl | [2.2.1](https://hackage.haskell.org/package/mtl-2.2.1) | [2.2.2](https://hackage.haskell.org/package/mtl-2.2.2)
 parallel | [3.2.0.6](https://hackage.haskell.org/package/parallel-3.2.0.6) | [3.2.2.0](https://hackage.haskell.org/package/parallel-3.2.2.0)
 parsec | [3.1.9](https://hackage.haskell.org/package/parsec-3.1.9) | [3.1.13.0](https://hackage.haskell.org/package/parsec-3.1.13.0)
 primitive | [0.6.1.0](https://hackage.haskell.org/package/primitive-0.6.1.0) | [0.7.0.0](https://hackage.haskell.org/package/primitive-0.7.0.0)
 random | [1.1](https://hackage.haskell.org/package/random-1.1) | [1.1](https://hackage.haskell.org/package/random-1.1)
+template-haskell | [2.10.0.0](https://hackage.haskell.org/package/template-haskell-2.10.0.0) | [2.14.0.0](https://hackage.haskell.org/package/template-haskell-2.14.0.0)
 text | [1.2.1.3](https://hackage.haskell.org/package/text-1.2.1.3) | [1.2.3.1](https://hackage.haskell.org/package/text-1.2.3.1)
 tf-random | [0.5](https://hackage.haskell.org/package/tf-random-0.5) | [0.5](https://hackage.haskell.org/package/tf-random-0.5)
 transformers | [0.4.2.0](https://hackage.haskell.org/package/transformers-0.4.2.0) | [0.5.6.2](https://hackage.haskell.org/package/transformers-0.5.6.2)
@@ -204,6 +210,7 @@ heaps | [0.3.6.1](https://hackage.haskell.org/package/heaps-0.3.6.1)
 lens | [4.17.1](https://hackage.haskell.org/package/lens-4.17.1)
 massiv | [0.4.0.0](https://hackage.haskell.org/package/massiv-0.4.0.0) | 高次元のaligned vectorを扱うmoduleであって，「mutable <-> immutable 相互変換可能」「map,fold等がそのまま使える」を満たしているものとして希望した．
 mono-traversable | [1.0.12.0](https://hackage.haskell.org/package/mono-traversable-1.0.12.0) | ByteStringやText等をFoldable/Traversableっぽく扱うためのインターフェースを提供している。
+mutable-containers | [0.3.4](https://hackage.haskell.org/package/mutable-containers-0.3.4) | Unboxed MutVarなど、高速な手続き型アルゴリズムの実装に用いることのできるユーティリティを含むため。
 mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | System.Random の乱数生成処理が遅いため。[Haskellの乱数事情](https://qiita.com/philopon/items/8f647fc8dafe66b7381b), [Haskellの乱数生成を勉強中 - 今度こそ最後か　やっとちゃんと速度測れた](http://blog.livedoor.jp/rtabaladi_58/archives/57642581.html) などの記事が参考になります。
 psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
 reflection | [2.1.4](https://hackage.haskell.org/package/reflection-2.1.4) | 実行時の値に基づいた型レベル自然数を作るため。
@@ -211,6 +218,7 @@ repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
 unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0) | [unboxing-vectorの紹介：newtypeフレンドリーなunboxed vector](https://qiita.com/mod_poppo/items/cf6b66ff16464c170ac2) を参照してください。
 utility-ht | [0.0.14](https://hackage.haskell.org/package/utility-ht)
 vector-algorithms | [0.8.0.1](https://hackage.haskell.org/package/vector-algorithms-0.8.0.1) | Vector のソートを行うため。
+vector-th-unbox | [0.3.0.1](https://hackage.haskell.org/package/vector-th-unbox) | unboxing-vectorに並び、 newtype に対して unboxed Vector を用いるため。
 
 #### パッケージのインストール
 
@@ -238,11 +246,13 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     extra-1.6.18 \
     fgl-5.7.0.1 \
     heaps-0.3.6.1 \
+    hashable-1.3.0.0 \
     integer-logarithms-1.0.3 \
     lens-4.17.1 \
     massiv-0.4.0.0 \
     mono-traversable-1.0.12.0 \
     mtl-2.2.2 \
+    mutable-containers-0.3.4 \
     mwc-random-0.14.0.0 \
     parallel-3.2.2.0 \
     parsec-3.1.13.0 \
@@ -252,13 +262,15 @@ $ cabal v2-install --lib --package-env /opt/.cabal/global.env \
     reflection-2.1.4 \
     repa-3.4.1.4 \
     text-1.2.3.1 \
+    template-haskell-2.14.0.0 \
     tf-random-0.5 \
     transformers-0.5.6.2 \
     unboxing-vector-0.1.1.0 \
     unordered-containers-0.2.10.0 \
     utility-ht-0.0.14 \
     vector-0.12.0.3 \
-    vector-algorithms-0.8.0.1
+    vector-algorithms-0.8.0.1 \
+    vector-th-unbox-0.2.1.7
 ```
 
 異なるユーザでパッケージを利用するためにオプションをいくつか指定します。
