@@ -89,6 +89,7 @@ $ cabal install --lib --package-env /opt/.cabal/global.env \
     psqueues-0.2.7.2 \
     random-1.1 \
     reflection-2.1.5 \
+    regex-tdfa-1.3.1.0 \
     repa-3.4.1.4 \
     template-haskell-2.15.0.0 \
     text-1.2.4.0 \
@@ -225,6 +226,7 @@ mutable-containers | [0.3.4](https://hackage.haskell.org/package/mutable-contain
 mwc-random | [0.14.0.0](https://hackage.haskell.org/package/mwc-random-0.14.0.0) | System.Random の乱数生成処理が遅いため。[Haskellの乱数生成を勉強中 - 今度こそ最後か　やっとちゃんと速度測れた](http://blog.livedoor.jp/rtabaladi_58/archives/57642581.html) などの記事が参考になります。
 psqueues | [0.2.7.2](https://hackage.haskell.org/package/psqueues-0.2.7.2)
 reflection | [2.1.5](https://hackage.haskell.org/package/reflection-2.1.5) | 実行時の値に基づいた型レベル自然数を作るため。
+regex-tdfa | [1.3.1.0](https://hackage.haskell.org/package/regex-tdfa-1.3.1.0) | 正規表現があるかないかでコーディング速度がかなり変わる問題が出るため [詳細](https://github.com/haskell-jp/atcoder-haskell-resources/issues/9#issuecomment-607603852)
 repa | [3.4.1.4](https://hackage.haskell.org/package/repa-3.4.1.4)
 unboxing-vector | [0.1.1.0](https://hackage.haskell.org/package/unboxing-vector-0.1.1.0) | [unboxing-vectorの紹介：newtypeフレンドリーなunboxed vector](https://qiita.com/mod_poppo/items/cf6b66ff16464c170ac2) を参照してください。
 utility-ht | [0.0.15](https://hackage.haskell.org/package/utility-ht-0.0.15)
@@ -271,6 +273,7 @@ $ cabal install --lib --package-env /opt/.cabal/global.env \
     psqueues-0.2.7.2 \
     random-1.1 \
     reflection-2.1.5 \
+    regex-tdfa-1.3.1.0 \
     repa-3.4.1.4 \
     template-haskell-2.15.0.0 \
     text-1.2.4.0 \
