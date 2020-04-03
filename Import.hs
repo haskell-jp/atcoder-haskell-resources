@@ -16,7 +16,7 @@ import Test.QuickCheck.State
 import Test.QuickCheck.Test
 import Test.QuickCheck.Text
 
--- array-0.5.3.0
+-- array-0.5.4.0
 import Data.Array
 import Data.Array.Base
 import Data.Array.IArray
@@ -33,7 +33,7 @@ import Data.Array.Storable.Safe
 import Data.Array.Unboxed
 import Data.Array.Unsafe
 
--- attoparsec-0.13.2.3
+-- attoparsec-0.13.2.4
 import Data.Attoparsec
 import Data.Attoparsec.ByteString
 import Data.Attoparsec.ByteString.Char8
@@ -49,7 +49,7 @@ import Data.Attoparsec.Text.Lazy
 import Data.Attoparsec.Types
 import Data.Attoparsec.Zepto
 
--- bytestring-0.10.8.2
+-- bytestring-0.10.10.0
 import Data.ByteString
 import Data.ByteString.Builder
 import Data.ByteString.Builder.Extra
@@ -68,7 +68,7 @@ import Data.ByteString.Short
 import Data.ByteString.Short.Internal
 import Data.ByteString.Unsafe
 
--- containers-0.6.0.1
+-- containers-0.6.2.1
 import Data.Containers.ListUtils
 import Data.Graph
 import Data.IntMap
@@ -101,7 +101,7 @@ import Utils.Containers.Internal.StrictPair
 -- deepseq-1.4.4.0
 import Control.DeepSeq
 
--- fgl-5.7.0.1
+-- fgl-5.7.0.2
 import Data.Graph.Inductive
 import Data.Graph.Inductive.Basic
 import Data.Graph.Inductive.Example
@@ -165,7 +165,7 @@ import Control.Parallel
 import Control.Parallel.Strategies
 import Control.Seq
 
--- parsec-3.1.13.0
+-- parsec-3.1.14.0
 import Text.Parsec
 import Text.Parsec.ByteString
 import Text.Parsec.ByteString.Lazy
@@ -192,7 +192,7 @@ import Text.ParserCombinators.Parsec.Pos
 import Text.ParserCombinators.Parsec.Prim
 import Text.ParserCombinators.Parsec.Token
 
--- primitive-0.7.0.0
+-- primitive-0.7.0.1
 import Control.Monad.Primitive
 import Data.Primitive
 import Data.Primitive.Array
@@ -208,7 +208,7 @@ import Data.Primitive.Types
 -- random-1.1
 import System.Random
 
--- template-haskell-2.14.0.0
+-- template-haskell-2.15.0.0
 import Language.Haskell.TH
 import Language.Haskell.TH.LanguageExtensions
 import Language.Haskell.TH.Lib
@@ -218,7 +218,7 @@ import Language.Haskell.TH.PprLib
 import Language.Haskell.TH.Quote
 import Language.Haskell.TH.Syntax
 
--- text-1.2.3.1
+-- text-1.2.4.0
 import Data.Text
 import Data.Text.Array
 import Data.Text.Encoding
@@ -307,7 +307,7 @@ import Data.HashMap.Lazy
 import Data.HashMap.Strict
 import Data.HashSet
 
--- vector-0.12.0.3
+-- vector-0.12.1.2
 import Data.Vector
 import Data.Vector.Fusion.Bundle
 import Data.Vector.Fusion.Bundle.Monadic
@@ -329,7 +329,7 @@ import Data.Vector.Unboxed
 import Data.Vector.Unboxed.Base
 import Data.Vector.Unboxed.Mutable
 
--- extra-1.6.18
+-- extra-1.7.1
 import Control.Concurrent.Extra
 import Control.Exception.Extra
 import Control.Monad.Extra
@@ -350,16 +350,16 @@ import System.Process.Extra
 import System.Time.Extra
 import Text.Read.Extra
 
+-- heaps-0.3.6.1
+import Data.Heap
+
 -- integer-logarithms-1.0.3
 import GHC.Integer.Logarithms.Compat
 import Math.NumberTheory.Logarithms
 import Math.NumberTheory.Powers.Integer
 import Math.NumberTheory.Powers.Natural
 
--- heaps-0.3.6.1
-import Data.Heap
-
--- lens-4.18.1
+-- lens-4.19.1
 import Control.Exception.Lens
 import Control.Lens
 import Control.Lens.At
@@ -444,26 +444,26 @@ import System.Exit.Lens
 import System.FilePath.Lens
 import System.IO.Error.Lens
 
--- massiv-0.4.2.0
+-- massiv-0.5.1.0
 import Data.Massiv.Array
 import Data.Massiv.Array.Delayed
 import Data.Massiv.Array.Manifest
 import Data.Massiv.Array.Manifest.Vector
-import Data.Massiv.Array.Manifest.Vector.Stream
 import Data.Massiv.Array.Mutable
 import Data.Massiv.Array.Mutable.Algorithms
 import Data.Massiv.Array.Mutable.Atomic
 import Data.Massiv.Array.Numeric
 import Data.Massiv.Array.Numeric.Integral
 import Data.Massiv.Array.Stencil
-import Data.Massiv.Array.Stencil.Unsafe
 import Data.Massiv.Array.Unsafe
 import Data.Massiv.Core
 import Data.Massiv.Core.Index
 import Data.Massiv.Core.List
 import Data.Massiv.Core.Operations
+import Data.Massiv.Vector
+import Data.Massiv.Vector.Stream
 
--- mono-traversable-1.0.13.0
+-- mono-traversable-1.0.15.1
 import Data.Containers
 import Data.MonoTraversable
 import Data.MonoTraversable.Unprefixed
@@ -486,6 +486,32 @@ import Data.OrdPSQ
 
 -- reflection-2.1.5
 import Data.Reflection
+
+-- regex-tdfa-1.3.1.0
+import Data.IntMap.CharMap2
+import Data.IntMap.EnumMap2
+import Data.IntSet.EnumSet2
+import Text.Regex.TDFA
+import Text.Regex.TDFA.ByteString
+import Text.Regex.TDFA.ByteString.Lazy
+import Text.Regex.TDFA.Common
+import Text.Regex.TDFA.CorePattern
+import Text.Regex.TDFA.IntArrTrieSet
+import Text.Regex.TDFA.NewDFA.Engine
+import Text.Regex.TDFA.NewDFA.Engine_FA
+import Text.Regex.TDFA.NewDFA.Engine_NC
+import Text.Regex.TDFA.NewDFA.Engine_NC_FA
+import Text.Regex.TDFA.NewDFA.MakeTest
+import Text.Regex.TDFA.NewDFA.Tester
+import Text.Regex.TDFA.NewDFA.Uncons
+import Text.Regex.TDFA.Pattern
+import Text.Regex.TDFA.ReadRegex
+import Text.Regex.TDFA.Sequence
+import Text.Regex.TDFA.String
+import Text.Regex.TDFA.TDFA
+import Text.Regex.TDFA.TNFA
+import Text.Regex.TDFA.Text
+import Text.Regex.TDFA.Text.Lazy
 
 -- repa-3.4.1.4
 import Data.Array.Repa
@@ -520,7 +546,7 @@ import Data.Array.Repa.Unsafe
 import Data.Vector.Unboxing
 import Data.Vector.Unboxing.Mutable
 
--- utility-ht-0.0.14
+-- utility-ht-0.0.15
 import Control.Applicative.HT
 import Control.Functor.HT
 import Control.Monad.HT
@@ -547,7 +573,7 @@ import Data.Tuple.Strict
 import Text.Read.HT
 import Text.Show.HT
 
--- vector-algorithms-0.8.0.1
+-- vector-algorithms-0.8.0.3
 import Data.Vector.Algorithms.AmericanFlag
 import Data.Vector.Algorithms.Heap
 import Data.Vector.Algorithms.Insertion
